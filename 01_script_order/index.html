@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Script Order Example - The Senior Dev</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen font-poppins">
+    <script async src="async.js"></script>
+
+    <div id="message_list">
+    </div>
+    <script src="script.js"></script>
+    <script defer src="defer.js"></script>
+    <script>
+        console.log("Inline script");
+        for (let i = 0; i < 1000; i++) {
+            console.log("Inline script..");
+        }
+        console.log("Inline script finished");
+        const messageListInline = document.getElementById("message_list");
+        messageListInline.innerHTML += "<br/>-> Inline script loading....\n";
+        messageListInline.innerHTML += "<br/>-> Inline script loaded!\n";
+    </script>
+</body>
+</html>
