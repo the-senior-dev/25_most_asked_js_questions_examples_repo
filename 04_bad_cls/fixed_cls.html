@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed CLS Example - No Layout Shift!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .skeleton-text {
+            border-radius: 4px;
+        }
+        .skeleton-image {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">✅ Fixed CLS Example</h1>
+            <p class="text-gray-600">Notice how there's NO layout shift - skeleton loaders reserve space!</p>
+        </header>
+
+        <div class="text-center mb-6">
+            <button id="reload_btn" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200">
+                Reload Products (No Layout Shift!)
+            </button>
+        </div>
+
+        <!-- First Product Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">🔥 Hot Deals</h2>
+            <div id="product_list_1" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skeleton loaders for first 4 products -->
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promotional Banner - Always visible, no loading -->
+        <div id="promo_banner" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-2xl p-8 my-12 text-center shadow-xl">
+            <h2 class="text-3xl font-bold mb-4">🚀 Black Friday Sale!</h2>
+            <p class="text-xl mb-4">Get up to 50% off on all developer gear</p>
+            <div class="flex justify-center items-center space-x-4">
+                <span class="bg-white text-purple-600 px-4 py-2 rounded-full font-bold">Use code: DEV50</span>
+                <button class="bg-yellow-400 text-purple-800 px-6 py-2 rounded-full font-bold hover:bg-yellow-300 transition">
+                    Shop Now
+                </button>
+            </div>
+        </div>
+
+        <!-- Second Product Section -->
+        <section>
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">💎 Premium Collection</h2>
+            <div id="product_list_2" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Skeleton loaders for remaining 4 products -->
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="skeleton skeleton-image w-full h-48"></div>
+                    <div class="p-4">
+                        <div class="skeleton skeleton-text h-6 w-3/4 mb-2"></div>
+                        <div class="skeleton skeleton-text h-4 w-full mb-3"></div>
+                        <div class="flex items-center mb-3">
+                            <div class="skeleton skeleton-text h-4 w-20 mr-2"></div>
+                            <div class="skeleton skeleton-text h-4 w-10"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="skeleton skeleton-text h-8 w-16"></div>
+                                <div class="skeleton skeleton-text h-4 w-12"></div>
+                            </div>
+                            <div class="skeleton skeleton-text h-10 w-24 rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">DevGear Store</h3>
+                    <p class="text-gray-400 text-sm">Your one-stop shop for developer tools and accessories. Built by developers, for developers.</p>
+                </div>
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Keyboards</a></li>
+                        <li><a href="#" class="hover:text-white transition">Monitors</a></li>
+                        <li><a href="#" class="hover:text-white transition">Chairs</a></li>
+                        <li><a href="#" class="hover:text-white transition">Laptops</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-white transition">Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition">Discord</a></li>
+                        <li><a href="#" class="hover:text-white transition">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 DevGear Store. Built with ❤️ for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="fixed_script.js"></script>
+</body>
+</html>
+
