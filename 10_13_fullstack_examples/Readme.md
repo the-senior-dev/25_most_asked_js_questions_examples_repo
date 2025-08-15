@@ -1,10 +1,14 @@
-# CORS Preflight Request Example
+10. Response Status Codes
+
+- See Backend: 
+
+11. CORS Preflight Request Example
 
 - Backend: Node.js + Express
 - Frontend: HTML + JavaScript
 
 
-# Content Negotiation
+12. Content Negotiation
 
 - The browser sends a request to the server with the following headers:
     - Accept: application/json
@@ -16,6 +20,8 @@
     - Access-Control-Allow-Headers: Content-Type, Authorization
     - Access-Control-Allow-Credentials: true
     - Access-Control-Max-Age: 86400
+
+13. API Versioning
     
 
     
