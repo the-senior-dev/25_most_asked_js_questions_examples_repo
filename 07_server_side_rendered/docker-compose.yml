@@ -1,0 +1,17 @@
+version: 'version 3'
+
+services:
+  ssr_app:
+    build: ./ssr_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ssr_app:/app
+    command: ["npm", "run", "dev"]
+  csr_app:
+    build: ./csr_app
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./csr_app:/app
+    command: ["npm", "run", "dev"]
