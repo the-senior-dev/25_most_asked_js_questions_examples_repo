@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <div id="products">
+        
+    </div>
+    <script>
+        fetch("http://backend:3000/products")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const products = data;
+            const productsContainer = document.getElementById("products");
+            productsContainer.innerHTML = products.map(product => `<div>${product.name}</div>`).join("");
+        })
+        .catch(error => {
+            console.error(error);
+        })
+        
+    </script>
+    
+</body>
+</html>

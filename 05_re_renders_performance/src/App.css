@@ -1,0 +1,207 @@
+/* Dark Theme Variables */
+:root {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --border: #334155;
+  --input: #475569;
+  --primary: #3b82f6;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Excel-style Form Styles */
+.excel-container {
+  padding: 24px;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.excel-header {
+  margin-bottom: 24px;
+}
+
+.excel-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.excel-description {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.excel-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--card);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-destructive {
+  background-color: #dc2626;
+  color: white;
+}
+
+.excel-info {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+.excel-grid {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--card);
+}
+
+.excel-row {
+  display: grid;
+  grid-template-columns: 48px repeat(10, 120px);
+}
+
+.excel-header-cell {
+  height: 32px;
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.excel-row-header {
+  width: 48px;
+  height: 32px;
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.excel-cell {
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.excel-cell.selected {
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.excel-input {
+  width: 100%;
+  height: 32px;
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.excel-input::placeholder {
+  color: var(--muted);
+}
+
+.performance-tips {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.performance-tips h3 {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.performance-tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.performance-tips li {
+  margin-bottom: 4px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
