@@ -84,9 +84,7 @@ export const ExcelForm: React.FC = () => {
     <div className="container mx-auto p-2 min-h-screen max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">React Re-render Performance Demo</h1>
-        <p className="text-muted-foreground mb-4">
-          Excel-style form with {ROWS * COLS} cells. Clean components without memoizations to show natural re-render behavior.
-        </p>
+
           
           <div className="flex gap-3 mb-4">
             <button className="btn btn-default" onClick={handleFillSampleData}>
